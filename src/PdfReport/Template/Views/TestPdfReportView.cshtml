@@ -1,0 +1,67 @@
+﻿<!-- This is razor html follow syntax here  https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0 -->
+@{
+    Layout = "/PdfReport/Template/Views/_layout.cshtml";
+}
+
+@model NetCorePdfRazorDemo.PdfReport.Template.ViewModels.TestPdfReportViewModel
+<style>
+    table {
+        width: 100%;
+    }
+
+    td, th {
+        padding: 0 10px;
+        border: 1px solid #000000;
+    }
+
+    th {
+        background-color: #8e9e93;
+    }
+
+    .id {
+        width: 10%;
+        text-align: right;
+    }
+
+    .name {
+        width: 35%;
+        text-align: left;
+    }
+
+    .last-name {
+        width: 35%;
+        text-align: left;
+    }
+
+    .balance {
+        width: 20%;
+        text-align: right;
+    }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th class="id">Id</th>
+                <th class="name">Name</th>
+                <th class="last-name">Last Name</th>
+                <th class="balance">Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < @Model.Data.Count; i++)
+            {
+                var testModel = @Model.Data[i];
+                <tr>
+                    <td class="id">@testModel.Id</td>
+                    <td class="name">@testModel.Name</td>
+                    <td class="last-name">@testModel.LastName</td>
+                    <td class="balance">@testModel.Balance</td>
+                </tr>
+
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+</div>

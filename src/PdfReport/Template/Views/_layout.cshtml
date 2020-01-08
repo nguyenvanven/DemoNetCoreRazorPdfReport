@@ -1,0 +1,40 @@
+﻿<!-- This is razor html follow syntax here  https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0 -->
+<style>
+    .report-title {
+        text-align: center;
+        width: 100%;
+    }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tfoot {
+        display: table-footer-group;
+    }
+
+    .body-content {
+        max-width: none;
+    }
+</style>
+<div class="report-title">
+    <h1>Test Report</h1>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Today.Year - Test</p>
+    </footer>
+</div>
